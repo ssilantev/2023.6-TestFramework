@@ -1,6 +1,5 @@
 package mantis.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,7 +20,7 @@ public class PasswordPage {
 
     public PasswordPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 30, 500); //TODO неправильно определился тип занчений int вместо времени
+        wait = new WebDriverWait(driver, 30, 500);
 
         PageFactory.initElements(driver, this);
     }

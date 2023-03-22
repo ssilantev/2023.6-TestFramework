@@ -17,7 +17,7 @@ public class ViewIssuesPage {
 
 	public ViewIssuesPage(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, 30, 500); //TODO неправильно определился тип занчений int вместо времени
+		wait = new WebDriverWait(driver, 30, 500);
 		PageFactory.initElements(driver, this);
 	}
 	public int countIssues() {
