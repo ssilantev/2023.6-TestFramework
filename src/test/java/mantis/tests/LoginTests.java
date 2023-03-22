@@ -2,6 +2,7 @@ package mantis.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import mantis.pages.MantisSite;
+import mantis.pages.PasswordPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,6 +33,17 @@ public class LoginTests extends BaseTest{
 
         String currentUserName = mantisSite.getMainPage().getUserName();
         Assertions.assertEquals("admin", currentUserName);
+        Thread.sleep(1000);
+    }
+
+    @Test
+    public void negativeLoginTest() throws InterruptedException {
+        mantisSite = new MantisSite(driver);
+        mantisSite.login("admin", "123123123");
+        Assertions.assertTrue(mantisSite.getPasswordPage().errorMessage());
+//        String actualErrText = mantisSite.getPasswordPage().getErrorMessage();
+//        Assertions.assertEquals("Возможно, ваша учетная запись заблокирована, " +
+//                        "или введенное регистрационное имя/пароль неправильны.", actualErrText);
         Thread.sleep(1000);
     }
 }
