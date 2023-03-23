@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 public class PasswordPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
@@ -29,11 +28,6 @@ public class PasswordPage {
         passwordField.sendKeys(password);
         passwordField.sendKeys(Keys.ENTER);
     }
-//    public String getErrorMessage() {
-//        return errorMessage.getText();
-//    }
-
-
 
     public boolean errorMessage() {
         return errorMessage.isDisplayed();

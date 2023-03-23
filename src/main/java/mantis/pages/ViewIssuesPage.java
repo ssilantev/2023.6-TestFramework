@@ -40,6 +40,7 @@ public class ViewIssuesPage {
 		wait = new WebDriverWait(driver, 30, 500);
 		PageFactory.initElements(driver, this);
 	}
+
 	public int countIssues() {
 		return issues.size();
 	}
@@ -62,8 +63,8 @@ public class ViewIssuesPage {
 		driver.get("https://academ-it.ru/mantisbt/view.php?id=" + newIssueLink.getText());
 		deleteButton.sendKeys(Keys.ENTER);
 		confirmDeleteButton.sendKeys(Keys.ENTER);
-		//Thread.sleep(1000);
 	}
+
 	public String scanLastIssue() {
 		return lastIssueLeft.getText();
 	}

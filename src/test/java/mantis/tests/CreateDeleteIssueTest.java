@@ -2,7 +2,6 @@ package mantis.tests;
 
 import mantis.pages.MantisSite;
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CreateDeleteIssueTest extends BaseTest{
