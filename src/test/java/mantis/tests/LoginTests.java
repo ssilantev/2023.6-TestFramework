@@ -23,7 +23,7 @@ public class LoginTests extends BaseTest{
     @Test
     public void successfulLoginTest() throws InterruptedException {
         mantisSite = new MantisSite(driver);
-        mantisSite.login("admin", "admin20");
+        mantisSite.login(TestData.loginTrue, TestData.passwordTrue);
 
         String currentUserName = mantisSite.getMainPage().getUserName();
         Assertions.assertEquals("admin", currentUserName);
@@ -33,7 +33,7 @@ public class LoginTests extends BaseTest{
     @Test
     public void negativeLoginTest() throws InterruptedException {
         mantisSite = new MantisSite(driver);
-        mantisSite.login("admin", "123123123");
+        mantisSite.login(TestData.loginTrue, TestData.passwordFalse);
         Assertions.assertTrue(mantisSite.getPasswordPage().errorMessage());
         Thread.sleep(1000);
     }

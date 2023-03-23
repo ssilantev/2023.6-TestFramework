@@ -25,8 +25,16 @@ public class MantisSite {
         passwordPage.login(password);
     }
 
-    public void fillForm(String summary, String description) {
-        reportIssuePage.fillForm(summary, description);
+    public void newIssue(String summary, String description) {
+        reportIssuePage.createIssue(summary, description);
+    }
+
+    public void deleteIssue () {
+        viewIssuesPage.removeIssue();
+    }
+
+    public ViewIssuesPage getViewIssuesPage() {
+        return viewIssuesPage;
     }
 
     public LoginPage getLoginPage() {
@@ -37,9 +45,6 @@ public class MantisSite {
     }
     public MainPage getMainPage() {
         return mainPage;
-    }
-    public ViewIssuesPage getViewIssuesPage() {
-        return viewIssuesPage;
     }
     public ReportIssuePage getReportIssuePage() {
         return reportIssuePage;

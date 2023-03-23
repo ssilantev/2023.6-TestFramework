@@ -26,7 +26,7 @@ public class ReportIssuePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void fillForm(String summaryText, String descriptionText) {
+	public void createIssue(String summaryText, String descriptionText) {
 		driver.get("https://academ-it.ru/mantisbt/bug_report_page.php");
 		summaryField.sendKeys(summaryText);
 		descriptionField.sendKeys(descriptionText);
