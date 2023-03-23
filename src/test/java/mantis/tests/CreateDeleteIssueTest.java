@@ -11,6 +11,7 @@ public class CreateDeleteIssueTest extends BaseTest{
 
 	@Test
 	public void createIssue() {
+		SoftAssertions softAssert = new SoftAssertions();
 		mantisSite = new MantisSite(driver);
 		mantisSite.login(TestData.loginTrue, TestData.passwordTrue);
 
@@ -20,25 +21,19 @@ public class CreateDeleteIssueTest extends BaseTest{
 		String actualIdSummary = mantisSite.getViewIssuesPage().getIssueIdSummary();
 		System.out.println("My issue_for_delition id: " + issueId + "\nActual Id + Summary are: "
 				+ actualIdSummary + "\nExpected Id + Summary are: " + issueId + ": " + TestData.summary);
-		//Check Creation
-
-		// softAssert врет, ничего не проверяет
-		SoftAssertions softAssert1 = new SoftAssertions();
-		softAssert1.assertThat(actualIdSummary).isNotEqualTo(issueId + ": " + TestData.summary);
-		Assertions.assertEquals(issueId + ": " + TestData.summary, actualIdSummary);
+		softAssert.assertThat(actualIdSummary).isEqualTo(issueId + ": " + TestData.summary);
+		//Assertions.assertEquals(issueId + ": " + TestData.summary, actualIdSummary);
 
 		String actualDescription = mantisSite.getViewIssuesPage().getIssueDescription();
-		SoftAssertions softAssert2 = new SoftAssertions();
-		softAssert2.assertThat(actualDescription).isEqualTo(TestData.description + "123123123");
-		Assertions.assertEquals(TestData.description, actualDescription);
+		softAssert.assertThat(actualDescription).isEqualTo(TestData.description);
+		//Assertions.assertEquals(TestData.description, actualDescription);
 
 		mantisSite.deleteIssue();
-		// Check removal
 		String lastIssueNumber = mantisSite.getViewIssuesPage().scanLastIssue();
-		SoftAssertions softAssert3 = new SoftAssertions();
-		softAssert3.assertThat(lastIssueNumber).isNotEqualTo(issueId);
-		Assertions.assertNotEquals(lastIssueNumber, issueId);
+		softAssert.assertThat(lastIssueNumber).isNotEqualTo(issueId);
+		//Assertions.assertNotEquals(lastIssueNumber, issueId);
 
+		softAssert.assertAll();
 		System.out.println("Last issue remained is: " + lastIssueNumber);
 	}
 }
