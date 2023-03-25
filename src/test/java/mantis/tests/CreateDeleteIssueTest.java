@@ -18,7 +18,7 @@ public class CreateDeleteIssueTest extends BaseTest{
 
 		String issueId = mantisSite.getViewIssuesPage().getIssueId();
 		String actualIdSummary = mantisSite.getViewIssuesPage().getIssueIdSummary();
-		System.out.println("My issue_for_delition id: " + issueId + "\nActual Id + Summary are: "
+		System.out.println("My issue_for_deletion id: " + issueId + "\nActual Id + Summary are: "
 				+ actualIdSummary + "\nExpected Id + Summary are: " + issueId + ": " + TestData.summary);
 		softAssert.assertThat(actualIdSummary).isEqualTo(issueId + ": " + TestData.summary);
 		//Assertions.assertEquals(issueId + ": " + TestData.summary, actualIdSummary);
